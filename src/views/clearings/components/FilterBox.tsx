@@ -3,19 +3,84 @@ import Dropdown from "../../../components/dropdowns/Dropdown";
 import FilterInput from "../../../components/inputs/FilterInput";
 import BoxContainer from "../../../components/layout/BoxContainer";
 import { IoIosSearch } from "react-icons/io";
+import { HiOutlineTrash } from "react-icons/hi";
+import type { OrganizationType } from "../../../types/organization";
+import type { FilterValues } from "../types";
 
-export default function FilterBox() {
+interface FilterBoxProps {
+  filterValues: FilterValues;
+  setFilterValues: React.Dispatch<React.SetStateAction<FilterValues>>;
+  onSearch: () => void;
+  onReset: () => void;
+  organizations: OrganizationType[];
+}
+
+export default function FilterBox({
+  filterValues,
+  setFilterValues,
+  onSearch,
+  onReset,
+  organizations,
+}: FilterBoxProps) {
+  const orgOptions = [
+    { label: "All Organizations", value: "all" },
+    ...organizations.map((org) => ({
+      label: org.name,
+      value: String(org.id),
+    })),
+  ];
+
+  const handleChange = (field: keyof FilterValues, value: string) => {
+    setFilterValues((prev) => ({ ...prev, [field]: value }));
+  };
+
   return (
-    <div className="flex w-full justify-center items-center">
-      <BoxContainer className="flex">
-        <div className="flex gap-6 w-full">
-          <FilterInput label="Year" placeholder="Filter" type="date" />
-          <FilterInput label="Week" placeholder="Filter" type="number" />
-          <Dropdown label="Status" options={[]} value="" onChange={() => {}} />
-          <Dropdown label="Type" options={[]} value="" onChange={() => {}} />
-        </div>
-        <div className="flex w-full justify-end">
-          <PrimaryButton icon={<IoIosSearch />} children="Search" />
+    <div className="flex w-full justify-center items-center py-4">
+      <BoxContainer className="flex flex-col gap-4 w-full">
+        <div className="flex gap-6 w-full items-end">
+          <FilterInput
+            label="Year"
+            placeholder="Filter"
+            type="text"
+            value={filterValues.year}
+            onChange={(e) => handleChange("year", e.target.value)}
+          />
+          <FilterInput
+            label="Week"
+            placeholder="Filter"
+            type="number"
+            value={filterValues.week}
+            onChange={(e) => handleChange("week", e.target.value)}
+          />
+          <Dropdown
+            label="Organization"
+            options={orgOptions}
+            value={filterValues.org}
+            onChange={(val) => handleChange("org", val)}
+            className="w-64"
+          />
+          <Dropdown
+            label="Status"
+            options={[
+              { label: "To Be Cleared", value: "to_be_cleared" },
+              { label: "Cleared", value: "cleared" },
+            ]}
+            value={filterValues.status}
+            onChange={(val) => handleChange("status", val)}
+            className="w-48"
+          />
+          <button
+            onClick={onReset}
+            className="flex items-center gap-1 text-red-500 text-[10px] font-bold hover:text-red-400 mb-3 ml-2 transition-colors uppercase tracking-wider"
+          >
+            <HiOutlineTrash size={14} />
+            Clear Filters
+          </button>
+          <div className="ml-auto">
+            <PrimaryButton onClick={onSearch} icon={<IoIosSearch />}>
+              Search For Clearing
+            </PrimaryButton>
+          </div>
         </div>
       </BoxContainer>
     </div>

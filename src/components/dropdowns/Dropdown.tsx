@@ -20,9 +20,6 @@ export default function Dropdown({
   onChange,
   className,
 }: DropwdownProps) {
-  const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onChange(e.target.value);
-  };
   return (
     <div className={`flex flex-col gap-1.5 ${className}`}>
       <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">
@@ -31,7 +28,7 @@ export default function Dropdown({
       <div className="relative group">
         <select
           value={value}
-          onChange={(e) => onChangeHandler(e)}
+          onChange={(e) => onChange(e.target.value)}
           className="w-full bg-[#0F0F0F] text-sm text-gray-200 border border-gray800 rounded-md py-2.5 px-3 pr-10 appearance-none cursor-pointer focus:outlione-none focus:border-gray-600 focus:ring-1 focus:ring-gray-700 transition-all hover:bg-[#1A1A1A]"
         >
           {options.map((option) => (
@@ -44,8 +41,8 @@ export default function Dropdown({
             </option>
           ))}
         </select>
-        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500 group-hover:text-gray-300">
-          <IoChevronDownSharp className="w-4 h-4" />
+        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none z-20 text-gray-500">
+          <IoChevronDownSharp className="w-3.5 h-3.5" />
         </div>
       </div>
     </div>

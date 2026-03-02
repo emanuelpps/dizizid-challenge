@@ -1,6 +1,12 @@
 import type { InputProps } from "./types";
 
-export default function FilterInput({ label, placeholder, type }: InputProps) {
+export default function FilterInput({
+  label,
+  placeholder,
+  type,
+  onChange,
+  value,
+}: InputProps) {
   return (
     <div className="flex flex-col gap-1">
       <label className="text-[10px] uppercase text-gray-500 font-bold tracking-wider">
@@ -8,8 +14,10 @@ export default function FilterInput({ label, placeholder, type }: InputProps) {
       </label>
       <input
         type={type}
-        className="bg-[#1A1A1A] border border-gray-800 rounded-md p-2 text-sm focus:border-gray-600 w-32 transition-colors duration-200 focus:outline-none"
+        className="bg-[#1A1A1A] border border-gray-800 rounded-md p-2 text-sm focus:border-gray-600 w-32 transition-colors duration-200 focus:outline-none text-white"
         placeholder={placeholder}
+        onChange={onChange}
+        value={value}
       ></input>
     </div>
   );
