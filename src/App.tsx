@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DashboardLayout from "./DashboardLayout";
+import Clearings from "./views/clearings/Clearings";
 
 function App() {
   const [activeTab, setActiveTab] = useState("clearings");
@@ -7,7 +8,7 @@ function App() {
   const renderContent = () => {
     switch (activeTab) {
       case "clearings":
-        return <div>Clearings Content</div>;
+        return <Clearings />;
       case "organizations":
         return <div>Organizations Content</div>;
       case "reports":
