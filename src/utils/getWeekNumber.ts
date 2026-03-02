@@ -1,8 +1,7 @@
-export function getWeekNumber(dateString: string): number {
-  const date = new Date(dateString);
-  const startDate = new Date(date.getFullYear(), 0, 1);
-  const days = Math.floor(
-    (date.getTime() - startDate.getTime()) / (24 * 60 * 60 * 1000),
-  );
-  return Math.ceil((days + startDate.getDay() + 1) / 7);
-}
+export const getWeekNumber = (date: Date) => {
+  const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+  const pastDaysOfYear =
+    (date.getTime() - firstDayOfYear.getTime()) / 86400000;
+
+  return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+};

@@ -12,9 +12,9 @@ export default function DashboardLayout({
   setActiveTab,
 }: DashboardLayoutProps) {
   return (
-    <body className="bg-gray-[#111111] min-h-screen w-full">
+    <div className="bg-gray-[#111111] min-h-screen w-full">
       <Menu activeTab={activeTab} setActiveTab={setActiveTab} />
       <main>{children}</main>
-    </body>
+    </div>
   );
 }

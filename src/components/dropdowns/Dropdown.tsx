@@ -29,7 +29,7 @@ export default function Dropdown({
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full bg-[#0F0F0F] text-sm text-gray-200 border border-gray800 rounded-md py-2.5 px-3 pr-10 appearance-none cursor-pointer focus:outlione-none focus:border-gray-600 focus:ring-1 focus:ring-gray-700 transition-all hover:bg-[#1A1A1A]"
+          className="w-full bg-[#0F0F0F] text-sm text-gray-200 border border-gray-800 rounded-md py-2.5 px-3 pr-10 appearance-none cursor-pointer focus:outline-none focus:border-gray-600 focus:ring-1 focus:ring-gray-700 transition-all hover:bg-[#1A1A1A]"
         >
           {options.map((option) => (
             <option

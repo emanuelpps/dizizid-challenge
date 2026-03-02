@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import FilterBox from "./components/FilterBox";
 import Header from "./components/Header";
 import Table from "./components/Table";
@@ -6,27 +6,25 @@ import clearingsData from "../../data/clearings.json";
 import organizationsData from "../../data/organizations.json";
 import type { Clearing } from "../../types/clearings";
 import type { FilterValues } from "./types";
-import { applyFilters } from "../../utils/filters";
 import type { OrganizationType } from "../../types/organization";
+import { applyFilters } from "../../utils/filters";
 
+const organizations = organizationsData as OrganizationType[];
+const initialData = clearingsData as Clearing[];
 export default function Clearings() {
-  const allData = useMemo(() => clearingsData as Clearing[], []);
-
-  const organizations = useMemo(
-    () => organizationsData as OrganizationType[],
-    [],
-  );
-
   const [filters, setFilters] = useState<FilterValues>({
     org: "all",
-    status: "to_be_cleared",
+    status: "all",
     year: "",
     week: "",
   });
 
-  const filteredData = useMemo(() => {
-    return applyFilters(allData, filters);
-  }, [allData, filters]);
+  const [filteredData, setFilteredData] = useState<Clearing[]>(initialData);
+
+  const handleSearch = (filters: FilterValues) => {
+    const results = applyFilters(initialData, filters);
+    setFilteredData(results);
+  };
 
   const handleReset = () => {
     setFilters({
@@ -35,6 +33,7 @@ export default function Clearings() {
       year: "",
       week: "",
     });
+    setFilteredData(initialData);
   };
 
   return (
@@ -43,7 +42,7 @@ export default function Clearings() {
       <FilterBox
         filterValues={filters}
         setFilterValues={setFilters}
-        onSearch={() => {}}
+        onSearch={handleSearch}
         onReset={handleReset}
         organizations={organizations}
       />

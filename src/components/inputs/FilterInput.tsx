@@ -17,7 +17,7 @@ export default function FilterInput({
         className="bg-[#1A1A1A] border border-gray-800 rounded-md p-2 text-sm focus:border-gray-600 w-32 transition-colors duration-200 focus:outline-none text-white"
         placeholder={placeholder}
         onChange={onChange}
-        value={value}
+        value={value ?? ""}
       ></input>
     </div>
   );

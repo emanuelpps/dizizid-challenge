@@ -10,7 +10,7 @@ import type { FilterValues } from "../types";
 interface FilterBoxProps {
   filterValues: FilterValues;
   setFilterValues: React.Dispatch<React.SetStateAction<FilterValues>>;
-  onSearch: () => void;
+  onSearch: (filters: FilterValues) => void;
   onReset: () => void;
   organizations: OrganizationType[];
 }
@@ -62,6 +62,7 @@ export default function FilterBox({
           <Dropdown
             label="Status"
             options={[
+              { label: "All Status", value: "all" },
               { label: "To Be Cleared", value: "to_be_cleared" },
               { label: "Cleared", value: "cleared" },
             ]}
@@ -70,14 +71,19 @@ export default function FilterBox({
             className="w-48"
           />
           <button
-            onClick={onReset}
+            onClick={() => {
+              onReset();
+            }}
             className="flex items-center gap-1 text-red-500 text-[10px] font-bold hover:text-red-400 mb-3 ml-2 transition-colors uppercase tracking-wider"
           >
             <HiOutlineTrash size={14} />
             Clear Filters
           </button>
           <div className="ml-auto">
-            <PrimaryButton onClick={onSearch} icon={<IoIosSearch />}>
+            <PrimaryButton
+              onClick={() => onSearch(filterValues)}
+              icon={<IoIosSearch />}
+            >
               Search For Clearing
             </PrimaryButton>
           </div>

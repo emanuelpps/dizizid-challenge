@@ -1,3 +1,4 @@
+import { memo, useMemo } from "react";
 import BoxContainer from "../../../components/layout/BoxContainer";
 import type { Clearing } from "../../../types/clearings";
 import type { OrganizationType } from "../../../types/organization";
@@ -7,11 +8,14 @@ interface ClearingTableProps {
   organizations: OrganizationType[];
 }
 
-export default function Table({ data, organizations }: ClearingTableProps) {
-  const getOrgName = (orgId: Clearing["organizationId"]): string => {
-    const org = organizations.find((o) => o.id === orgId);
-    return org ? org.name : "Unknown";
-  };
+const Table = memo(function Table({ data, organizations }: ClearingTableProps) {
+  const orgMap = useMemo(() => {
+    const map = new Map<OrganizationType["id"], string>();
+    organizations.forEach((org) => {
+      map.set(org.id, org.name);
+    });
+    return map;
+  }, [organizations]);
 
   return (
     <BoxContainer title={`Showing ${data.length} results`}>
@@ -33,7 +37,7 @@ export default function Table({ data, organizations }: ClearingTableProps) {
               <td className="py-4 px-2 text-xs text-gray-500">#{item.id}</td>
               <td className="py-4 px-2">
                 <span className="text-sm font-medium">
-                  {getOrgName(item.organizationId)}
+                  {orgMap.get(item.organizationId) ?? "Unknown"}
                 </span>
               </td>
               <td className="py-4 px-2 text-right font-bold text-sm">
@@ -56,4 +60,6 @@ export default function Table({ data, organizations }: ClearingTableProps) {
       </table>
     </BoxContainer>
   );
-}
+});
+
+export default Table;

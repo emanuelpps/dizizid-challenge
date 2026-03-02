@@ -5,21 +5,12 @@ import Clearings from "./views/clearings/Clearings";
 function App() {
   const [activeTab, setActiveTab] = useState("clearings");
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case "clearings":
-        return <Clearings />;
-      case "organizations":
-        return <div>Organizations Content</div>;
-      case "reports":
-        return <div>Reports Content</div>;
-      default:
-        return <div>Home Content</div>;
-    }
-  };
   return (
     <DashboardLayout activeTab={activeTab} setActiveTab={setActiveTab}>
-      {renderContent()}
+      {activeTab === "clearings" && <Clearings />}
+      {activeTab === "organizations" && <div>Organizations Content</div>}
+      {activeTab === "reports" && <div>Reports Content</div>}
+      {activeTab === "home" && <div>Home Content</div>}
     </DashboardLayout>
   );
 }

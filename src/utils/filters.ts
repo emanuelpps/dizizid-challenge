@@ -1,23 +1,27 @@
-import type { Clearing } from "../types/clearings";
 import type { FilterValues } from "../views/clearings/types";
+import type { Clearing } from "../types/clearings";
 import { getWeekNumber } from "./getWeekNumber";
 
-export const applyFilters = (
-  data: Clearing[],
-  filters: FilterValues,
-): Clearing[] => {
+export const applyFilters = (data: Clearing[], filters: FilterValues) => {
   return data.filter((item) => {
-    const org =
-      filters.org === "all" || String(item.organizationId) === filters.org;
+    const itemDate = new Date(item.createdAt);
 
-    const status =
+    const orgMatch =
+      filters.org === "all" || item.organizationId === filters.org;
+
+    const statusMatch =
       filters.status === "all" ||
-      item.status.toLowerCase() === filters.status.toLowerCase();
+      item.status.toLowerCase() === filters.status;
 
-    const year = !filters.year || item.createdAt.includes(filters.year);
+    const yearMatch =
+      !filters.year ||
+      itemDate.getFullYear().toString() === filters.year;
 
-    const week =
-      !filters.week || getWeekNumber(item.createdAt) === Number(filters.week);
-    return org && status && year && week;
+    const weekMatch =
+      !filters.week ||
+      getWeekNumber(itemDate) === Number(filters.week);
+
+    return orgMatch && statusMatch && yearMatch && weekMatch;
   });
 };
+
