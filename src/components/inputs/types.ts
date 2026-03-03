@@ -4,4 +4,5 @@ export interface InputProps {
   type: "number" | "text" | "date";
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
 }

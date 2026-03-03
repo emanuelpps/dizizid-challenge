@@ -37,14 +37,15 @@ export default function FilterBox({
 
   return (
     <div className="flex w-full justify-center items-center py-4">
-      <BoxContainer className="flex flex-col gap-4 w-full">
-        <div className="flex gap-6 w-full items-end">
+      <BoxContainer className="flex flex-col md:flex-row gap-4 md:gap-6 w-full">
+        <div className="flex flex-col md:flex-row gap-4 w-full">
           <FilterInput
             label="Year"
             placeholder="Filter"
             type="text"
             value={filterValues.year}
             onChange={(e) => handleChange("year", e.target.value)}
+            className="w-full"
           />
           <FilterInput
             label="Week"
@@ -52,13 +53,16 @@ export default function FilterBox({
             type="number"
             value={filterValues.week}
             onChange={(e) => handleChange("week", e.target.value)}
+            className="w-full"
           />
+        </div>
+        <div className="flex flex-col md:flex-row gap-4 w-full">
           <Dropdown
             label="Organization"
             options={orgOptions}
             value={filterValues.org}
             onChange={(val) => handleChange("org", val)}
-            className="w-64"
+            className="w-full"
           />
           <Dropdown
             label="Status"
@@ -69,21 +73,19 @@ export default function FilterBox({
             ]}
             value={filterValues.status}
             onChange={(val) => handleChange("status", val)}
-            className="w-48"
+            className="w-full"
           />
-          <div className="ml-auto flex justify-end w-full items-center">
-            <div className="flex gap-10 w-full justify-end items-center">
-              <TertiaryButton onClick={onReset} icon={<HiOutlineTrash />}>
-                Clear
-              </TertiaryButton>
-              <PrimaryButton
-                onClick={() => onSearch(filterValues)}
-                icon={<IoIosSearch />}
-              >
-                Search For Clearing
-              </PrimaryButton>
-            </div>
-          </div>
+        </div>
+        <div className="flex flex-wrap flex-col gap-5 md:flex-row gap-2 md:gap-4 mt-2 md:mt-0 w-full justify-center items-center">
+          <TertiaryButton onClick={onReset} icon={<HiOutlineTrash />}>
+            Clear
+          </TertiaryButton>
+          <PrimaryButton
+            onClick={() => onSearch(filterValues)}
+            icon={<IoIosSearch />}
+          >
+            Search For Clearing
+          </PrimaryButton>
         </div>
       </BoxContainer>
     </div>

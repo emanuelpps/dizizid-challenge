@@ -25,7 +25,7 @@ export default function Dropdown({
       <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">
         {label}
       </label>
-      <div className="relative group">
+      <div className="relative group w-full">
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
