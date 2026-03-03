@@ -1,8 +1,8 @@
-import BoxContainer from "../../components/layout/BoxContainer";
-import Title from "./components/Title";
-import organizationsData from "../../data/organizations.json";
-import MobileCard from "./components/MobileCard";
-import TableRow from "./components/TableRow";
+import BoxContainer from "@components/layout/BoxContainer";
+import Title from "@/views/organizations/components/Title";
+import organizationsData from "@data/organizations.json";
+import MobileCard from "@/views/organizations/components/MobileCard";
+import TableRow from "@/views/organizations/components/TableRow";
 
 export default function Organizations() {
   const titlesTable = [

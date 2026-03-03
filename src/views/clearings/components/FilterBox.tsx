@@ -1,12 +1,12 @@
-import PrimaryButton from "../../../components/buttons/PrimaryButton";
-import Dropdown from "../../../components/dropdowns/Dropdown";
-import FilterInput from "../../../components/inputs/FilterInput";
-import BoxContainer from "../../../components/layout/BoxContainer";
+import PrimaryButton from "@components/buttons/PrimaryButton";
+import Dropdown from "@components/dropdowns/Dropdown";
+import FilterInput from "@components/inputs/FilterInput";
+import BoxContainer from "@components/layout/BoxContainer";
 import { IoIosSearch } from "react-icons/io";
 import { HiOutlineTrash } from "react-icons/hi";
-import type { OrganizationType } from "../../../types/organization";
-import type { FilterValues } from "../types";
-import TertiaryButton from "../../../components/buttons/TertiaryButton";
+import type { OrganizationType } from "@/types/organization";
+import type { FilterValues } from "@/views/clearings/types";
+import TertiaryButton from "@components/buttons/TertiaryButton";
 
 interface FilterBoxProps {
   filterValues: FilterValues;

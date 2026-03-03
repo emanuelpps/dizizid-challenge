@@ -1,4 +1,4 @@
-import type { Clearing } from "../../../types/clearings";
+import type { Clearing } from "@/types/clearings";
 
 interface TableFooterProps {
   filtered: Clearing[];

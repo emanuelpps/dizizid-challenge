@@ -1,5 +1,5 @@
-import type { ID, Currency, ISODateString } from "./common";
-import type { ClearingPeriod } from "./event";
+import type { ID, Currency, ISODateString } from "@/types/common";
+import type { ClearingPeriod } from "@/types/event";
 
 export type ClearingStatus = "CLEARED" | "TO_BE_CLEARED";
 

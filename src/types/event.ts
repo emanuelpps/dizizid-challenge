@@ -1,4 +1,4 @@
-import type { ID } from "./common";
+import type { ID } from "@/types/common";
 
 export type ClearingPeriod = "WEEKLY" | "MONTHLY" | "ON_DEMAND";
 

@@ -1,4 +1,4 @@
-import type { ID, Currency, ISODateString } from "./common";
+import type { ID, Currency, ISODateString } from "@/types/common";
 
 export type OrganizationStatus = "ACTIVE" | "INACTIVE";
 

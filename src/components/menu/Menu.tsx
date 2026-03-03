@@ -1,5 +1,5 @@
-import type { TabsProps } from "../../types/selectionTabs";
-import MenuContainer from "./components/MenuContainer";
+import type { TabsProps } from "@/types/selectionTabs";
+import MenuContainer from "@components/menu/components/MenuContainer";
 
 export default function Menu({ activeTab, setActiveTab }: TabsProps) {
   return (

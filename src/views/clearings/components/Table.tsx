@@ -1,10 +1,10 @@
 import { memo, useMemo, useState } from "react";
-import BoxContainer from "../../../components/layout/BoxContainer";
-import type { Clearing } from "../../../types/clearings";
-import type { OrganizationType } from "../../../types/organization";
+import BoxContainer from "@components/layout/BoxContainer";
+import type { Clearing } from "@/types/clearings";
+import type { OrganizationType } from "@/types/organization";
 import { FiSliders, FiSearch } from "react-icons/fi";
-import TableRow from "./TableRow";
-import TableFooter from "./TableFooter";
+import TableRow from "@/views/clearings/components/TableRow";
+import TableFooter from "@/views/clearings/components/TableFooter";
 
 interface ClearingTableProps {
   data: Clearing[];

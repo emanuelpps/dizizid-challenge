@@ -1,6 +1,6 @@
 import { FiCheck, FiX, FiClock } from "react-icons/fi";
-import OrgAvatar from "../../../assets/icons/OrgAvatar";
-import type { Clearing } from "../../../types/clearings";
+import OrgAvatar from "@assets/icons/OrgAvatar";
+import type { Clearing } from "@/types/clearings";
 
 interface TableRowProps {
   item: Clearing;

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import FilterBox from "./components/FilterBox";
-import Header from "./components/Header";
-import Table from "./components/Table";
-import clearingsData from "../../data/clearings.json";
-import organizationsData from "../../data/organizations.json";
-import type { Clearing } from "../../types/clearings";
-import type { FilterValues } from "./types";
-import type { OrganizationType } from "../../types/organization";
-import { applyFilters } from "../../utils/filters";
+import FilterBox from "@/views/clearings/components/FilterBox";
+import Header from "@/views/clearings/components/Header";
+import Table from "@/views/clearings/components/Table";
+import clearingsData from "@data/clearings.json";
+import organizationsData from "@data/organizations.json";
+import type { Clearing } from "@/types/clearings";
+import type { FilterValues } from "@/views/clearings/types";
+import type { OrganizationType } from "@/types/organization";
+import { applyFilters } from "@utils/filters";
 
 const organizations = organizationsData as OrganizationType[];
 const initialData = clearingsData as Clearing[];

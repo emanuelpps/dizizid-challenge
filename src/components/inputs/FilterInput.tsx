@@ -1,4 +1,4 @@
-import type { InputProps } from "./types";
+import type { InputProps } from "@components/inputs/types";
 
 export default function FilterInput({
   label,

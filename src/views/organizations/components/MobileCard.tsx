@@ -1,5 +1,5 @@
-import OrgAvatar from "../../../assets/icons/OrgAvatar";
-import type { organizationsProps } from "../types";
+import OrgAvatar from "@assets/icons/OrgAvatar";
+import type { organizationsProps } from "@/views/organizations/types";
 
 export default function MobileCard({ org }: organizationsProps) {
   return (

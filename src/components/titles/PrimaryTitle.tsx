@@ -1,4 +1,4 @@
-import type { TitleProps } from "./types";
+import type { TitleProps } from "@components/titles/types";
 
 export default function PrimaryTitle({
   primaryTitle,

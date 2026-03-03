@@ -1,4 +1,4 @@
-import type { TabsProps } from "../../../types/selectionTabs";
+import type { TabsProps } from "@/types/selectionTabs";
 
 export default function NavBar({
   activeTab,

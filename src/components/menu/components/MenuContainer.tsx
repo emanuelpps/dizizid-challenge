@@ -1,7 +1,7 @@
 import { useState } from "react";
-import type { TabsProps } from "../../../types/selectionTabs";
-import Logo from "./Logo";
-import NavBar from "./NavBar";
+import type { TabsProps } from "@/types/selectionTabs";
+import Logo from "@components/menu/components/Logo";
+import NavBar from "@components/menu/components/NavBar";
 
 export default function MenuContainer({ activeTab, setActiveTab }: TabsProps) {
   const [isOpen, setIsOpen] = useState(false);

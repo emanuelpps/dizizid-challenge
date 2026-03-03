@@ -1,4 +1,4 @@
-import PrimaryTitle from "../../../components/titles/PrimaryTitle";
+import PrimaryTitle from "@components/titles/PrimaryTitle";
 
 export default function Title() {
   return (

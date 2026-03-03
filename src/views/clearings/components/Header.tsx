@@ -1,6 +1,6 @@
-import PrimaryButton from "../../../components/buttons/PrimaryButton";
-import SecondaryButton from "../../../components/buttons/SecondaryButton";
-import Title from "./Title";
+import PrimaryButton from "@components/buttons/PrimaryButton";
+import SecondaryButton from "@components/buttons/SecondaryButton";
+import Title from "@/views/clearings/components/Title";
 import { IoMdDownload } from "react-icons/io";
 import { MdOutlinePayments } from "react-icons/md";
 

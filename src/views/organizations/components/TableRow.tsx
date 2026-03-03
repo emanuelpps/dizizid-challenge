@@ -1,4 +1,4 @@
-import OrgAvatar from "../../../assets/icons/OrgAvatar";
+import OrgAvatar from "@assets/icons/OrgAvatar";
 import type { organizationsProps } from "../types";
 
 export default function TableRow({ org }: organizationsProps) {

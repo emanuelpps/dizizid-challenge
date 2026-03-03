@@ -1,7 +1,7 @@
 import { useState } from "react";
-import DashboardLayout from "./DashboardLayout";
-import Clearings from "./views/clearings/Clearings";
-import Organizations from "./views/organizations/Organizations";
+import DashboardLayout from "@/DashboardLayout";
+import Clearings from "@/views/clearings/Clearings";
+import Organizations from "@/views/organizations/Organizations";
 
 function App() {
   const [activeTab, setActiveTab] = useState("clearings");

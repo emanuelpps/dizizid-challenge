@@ -1,4 +1,4 @@
-import PrimaryTitle from "../titles/PrimaryTitle";
+import PrimaryTitle from "@components/titles/PrimaryTitle";
 
 interface BoxContainerProps {
   children: React.ReactNode;
