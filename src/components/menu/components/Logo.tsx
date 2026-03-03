@@ -5,7 +5,7 @@ export default function Logo() {
     <div className="flex justify-center items-center gap-8">
       <div className="flex justify-center items-center gap-2 font-bold text-xl">
         <FaMoneyBillWave className="text-[#CFF75E]" />
-        <p>Dizizid Platform Challenge</p>
+        <p>Table Clearings Challenge</p>
       </div>
     </div>
   );
