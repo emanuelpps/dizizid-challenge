@@ -2,7 +2,7 @@
 
 A dashboard built with React, TypeScript, and Tailwind CSS for managing clearing cycles and organizations.
 
-🚀 **Live Demo:** [https://dizizid-challenge.vercel.app/](https://dizizid-challenge.vercel.app/)
+🚀 **Live Demo:** [https://dizizid-challenge.vercel.app/](https://table-clearings-challenge.vercel.app/)
 
 ---
 
